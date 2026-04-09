@@ -1,4 +1,6 @@
-/* --- LOCAL FONT DEFINITIONS --- */
+/* ========================================
+   FONTES (Do arquivo moderno)
+   ======================================== */
 @font-face {
   font-family: 'Inter';
   src: url('Inter-Regular.ttf') format('truetype');
@@ -31,21 +33,42 @@
   font-display: swap;
 }
 
-/* --- VARIABLES --- */
+/* ========================================
+   VARIÁVEIS (Do arquivo moderno + Retro)
+   ======================================== */
 :root {
-  --bg: #0d0d0d;
-  --bg-secondary: #141414;
-  --text: #fafafa;
-  --text-secondary: #a1a1aa;
-  --accent: #6366f1;
+  /* Moderno */
+  --bg-modern: #0d0d0d;
+  --bg-secondary-modern: #141414;
+  --text-modern: #313758;
+  --text-secondary-modern: #000004;
+  --accent: #b5aa32;
   --accent-glow: rgba(99, 102, 241, 0.15);
   --border: #27272a;
   --font-main: 'Inter', system-ui, -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
   --radius: 8px;
   --transition: all 0.2s ease;
+  
+  /* Retro Windows 95 */
+  --win-gray: #c0c0c0;
+  --win-dark: #808080;
+  --win-light: #ffffff;
+  --win-black: #000000;
+  --win-blue: #008080;
+  --win-yellow: #ffcc00;
+  --win-sidebar: #000066;
+  --win-red: #ff0000;
+  --win-green: #00ff00;
+  --win-footer: #000033;
+  --win-cyan: #00ffff;
+  --font-retro: 'MS Sans Serif', Arial, sans-serif;
+  --font-retro-mono: 'Courier New', monospace;
 }
 
+/* ========================================
+   RESET (Combinado)
+   ======================================== */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -56,10 +79,12 @@ html {
   scroll-behavior: smooth;
 }
 
+/* ========================================
+   ESTILO BASE (Retro - Ativo por padrão)
+   ======================================== */
 body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: var(--font-main);
+  background-color: var(--win-blue);
+  font-family: var(--font-retro);
   font-size: 16px;
   line-height: 1.7;
   min-height: 100vh;
@@ -67,58 +92,369 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  color: var(--accent);
-  text-decoration: none;
-  transition: var(--transition);
+/* ========================================
+   BARRA DE TAREFAS WINDOWS 95 (Retro)
+   ======================================== */
+.win95-taskbar {
+  background-color: var(--win-gray);
+  height: 40px;
+  display: flex;
+  align-items: center;
+  padding: 2px;
+  border-top: 2px solid var(--win-light);
+  border-left: 2px solid var(--win-light);
+  border-right: 2px solid var(--win-black);
+  border-bottom: 2px solid var(--win-black);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
 }
 
-a:hover {
-  color: #818cf8;
+.start-button {
+  display: flex;
+  align-items: center;
+  background-color: var(--win-gray);
+  padding: 2px 6px;
+  margin-right: 2px;
+  font-weight: bold;
+  font-size: 14px;
+  border-top: 2px solid var(--win-light);
+  border-left: 2px solid var(--win-light);
+  border-right: 2px solid var(--win-black);
+  border-bottom: 2px solid var(--win-black);
+  cursor: pointer;
   text-decoration: none;
+  color: var(--win-black);
 }
 
-/* Layout */
+.start-button:active, .start-button.active {
+  border-top: 2px solid var(--win-black);
+  border-left: 2px solid var(--win-black);
+  border-right: 2px solid var(--win-light);
+  border-bottom: 2px solid var(--win-light);
+  padding: 3px 5px 1px 7px;
+}
+
+.separator {
+  width: 2px;
+  height: 24px;
+  background-color: var(--win-dark);
+  border-left: 1px solid var(--win-light);
+  border-right: 1px solid var(--win-black);
+  margin: 0 8px;
+}
+
+.nav-item {
+  text-decoration: none;
+  color: var(--win-black);
+  font-size: 14px;
+  padding: 2px 12px;
+  margin-right: 4px;
+  border-top: 2px solid var(--win-light);
+  border-left: 2px solid var(--win-light);
+  border-right: 2px solid var(--win-black);
+  border-bottom: 2px solid var(--win-black);
+  background-color: var(--win-gray);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.nav-item:hover {
+  background-color: #d0d0d0;
+}
+
+.nav-item:active, .nav-item.active {
+  border-top: 2px solid var(--win-black);
+  border-left: 2px solid var(--win-black);
+  border-right: 2px solid var(--win-light);
+  border-bottom: 2px solid var(--win-light);
+  padding: 5px 11px 3px 13px;
+  background-color: #b0b0b0;
+}
+
+.spacer {
+  flex-grow: 1;
+}
+
+/* Botão de Idioma */
+.lang-switcher {
+  margin-right: 8px;
+}
+
+.win95-taskbar-btn {
+  background-color: var(--win-gray);
+  color: var(--win-black);
+  font-family: var(--font-retro);
+  font-size: 12px;
+  padding: 2px 8px;
+  border-top: 2px solid var(--win-light);
+  border-left: 2px solid var(--win-light);
+  border-right: 2px solid var(--win-black);
+  border-bottom: 2px solid var(--win-black);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.win95-taskbar-btn:hover {
+  background-color: #d0d0d0;
+}
+
+.win95-taskbar-btn:active {
+  border-top: 2px solid var(--win-black);
+  border-left: 2px solid var(--win-black);
+  border-right: 2px solid var(--win-light);
+  border-bottom: 2px solid var(--win-light);
+  padding: 3px 7px 1px 9px;
+}
+
+.clock {
+  background-color: var(--win-gray);
+  padding: 4px 10px;
+  font-size: 12px;
+  border-top: 2px solid var(--win-dark);
+  border-left: 2px solid var(--win-dark);
+  border-right: 2px solid var(--win-light);
+  border-bottom: 2px solid var(--win-light);
+  margin-left: 8px;
+}
+
+/* ========================================
+   CABEÇALHO PRINCIPAL (Retro)
+   ======================================== */
+.header {
+  background-color: var(--win-yellow);
+  color: var(--win-black);
+  padding: 15px;
+  text-align: center;
+  border: 3px solid var(--win-light);
+  margin: 50px 10px 10px 10px;
+}
+
+/* ========================================
+   BANNER EM CONSTRUÇÃO (Retro)
+   ======================================== */
+.construction-banner {
+  background: repeating-linear-gradient(
+    45deg,
+    #ffff00,
+    #ffff00 10px,
+    #000000 10px,
+    #000000 20px
+  );
+  padding: 15px;
+  border: 3px double var(--win-black);
+  text-align: center;
+  margin: 10px;
+}
+
+.construction-icon {
+  width: 40px;
+  height: 40px;
+  vertical-align: middle;
+}
+
+.construction-text {
+  background-color: var(--win-light);
+  padding: 5px 15px;
+  display: inline-block;
+  font-family: Arial, sans-serif;
+  color: var(--win-red);
+}
+
+/* ========================================
+   LAYOUT PRINCIPAL (Tabela - Retro)
+   ======================================== */
+.main-layout {
+  width: 90%;
+  max-width: 1000px;
+  margin: 10px auto;
+  border-collapse: collapse;
+}
+
+.sidebar {
+  width: 220px;
+  background-color: var(--win-sidebar);
+  vertical-align: top;
+  padding: 15px;
+  border-right: 2px solid var(--win-light);
+  color: var(--win-light);
+}
+
+.sidebar h3 {
+  margin-top: 0;
+  color: var(--win-yellow);
+}
+
+.sidebar ul {
+  list-style-type: square;
+  padding-left: 20px;
+}
+
+.sidebar a {
+  color: var(--win-light);
+  text-decoration: underline;
+}
+
+.content {
+  background-color: var(--win-light);
+  color: var(--win-black);
+  padding: 20px;
+  vertical-align: top;
+}
+
+.content h2 {
+  color: #000080;
+}
+
+.content a {
+  color: var(--win-black);
+  text-decoration: underline;
+}
+
+.content a:visited {
+  color: #800080;
+}
+
+/* ========================================
+   CONTADOR DE VISITAS (Retro)
+   ======================================== */
+.counter-container {
+  background-color: var(--win-black);
+  padding: 10px;
+  border: 3px inset var(--win-dark);
+  display: inline-block;
+  margin: 10px 0;
+}
+
+.counter-label {
+  color: var(--win-green);
+  font-family: var(--font-retro-mono);
+  font-size: 12px;
+  margin-right: 10px;
+}
+
+.counter-display {
+  display: inline-flex;
+  gap: 2px;
+}
+
+.digit {
+  background-color: var(--win-black);
+  color: var(--win-red);
+  font-family: var(--font-retro-mono);
+  font-weight: bold;
+  font-size: 24px;
+  padding: 2px 6px;
+  border: 1px solid var(--win-red);
+  text-shadow: 0 0 5px var(--win-red);
+}
+
+/* ========================================
+   BOTÃO DOWNLOAD WIN95 (Retro)
+   ======================================== */
+.win95-button {
+  display: inline-block;
+  background-color: var(--win-gray);
+  color: var(--win-black);
+  font-family: var(--font-retro);
+  font-size: 14px;
+  padding: 6px 12px;
+  text-decoration: none;
+  border-top: 2px solid var(--win-light);
+  border-left: 2px solid var(--win-light);
+  border-right: 2px solid var(--win-black);
+  border-bottom: 2px solid var(--win-black);
+  cursor: pointer;
+  transition: all 0.1s;
+}
+
+.win95-button:hover {
+  background-color: #d0d0d0;
+}
+
+.win95-button:active {
+  border-top: 2px solid var(--win-black);
+  border-left: 2px solid var(--win-black);
+  border-right: 2px solid var(--win-light);
+  border-bottom: 2px solid var(--win-light);
+  transform: translate(1px, 1px);
+}
+
+.button-icon {
+  margin-right: 5px;
+}
+
+/* ========================================
+   RODAPÉ (Retro)
+   ======================================== */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: var(--win-footer);
+  color: var(--win-light);
+  margin-top: 20px;
+}
+
+footer a {
+  color: var(--win-cyan);
+}
+
+.email-icon {
+  vertical-align: middle;
+  width: 20px;
+}
+
+.email-link {
+  color: var(--win-black);
+  text-decoration: underline;
+  animation: blinkText 1.5s infinite;
+}
+
+@keyframes blinkText {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* ========================================
+   ESTILOS MODERNOS (Opcional - Para seções específicas)
+   ======================================== */
 .container {
   width: min(900px, 92%);
   margin: 0 auto;
 }
 
-/* Hero Section */
 .hero {
-  padding: 5rem 0 4rem; 
+  padding: 5rem 0 4rem;
 }
 
 h1 {
-  font-size: clamp(2.75rem, 6vw, 4rem);
+  font-size: clamp(2rem, 6vw, 4rem);
   line-height: 1.05;
   letter-spacing: -0.03em;
   margin-bottom: 1.75rem;
 }
 
 .lead p {
-  color: var(--text-secondary);
+  color: var(--text-secondary-modern);
   max-width: 48rem;
   margin-bottom: 1.25rem;
   font-size: 1.05rem;
 }
 
-.lead p:last-child {
-  margin-bottom: 0;
-}
-
-/* Code/Technology Tags */
 code {
   font-family: var(--font-mono);
   font-size: 0.875em;
-  background: var(--bg-secondary);
+  background: var(--bg-secondary-modern);
   color: var(--accent);
   padding: 0.2em 0.4em;
   border-radius: 4px;
   border: 1px solid var(--border);
 }
 
-/* Meta Section */
 .meta {
   margin-top: 3rem;
   padding-top: 2rem;
@@ -131,12 +467,12 @@ code {
   font-size: 0.9rem;
   letter-spacing: 0.02em;
   text-transform: uppercase;
-  color: var(--text-secondary);
+  color: var(--text-secondary-modern);
 }
 
 .meta ul {
   list-style: none;
-  color: var(--text-secondary);
+  color: var(--text-secondary-modern);
 }
 
 .meta li {
@@ -152,7 +488,6 @@ code {
   color: var(--accent);
 }
 
-/* Sections */
 .section {
   padding: 2rem 0;
 }
@@ -165,11 +500,10 @@ h2 {
 }
 
 .section p {
-  color: var(--text-secondary);
+  color: var(--text-secondary-modern);
   max-width: 50rem;
 }
 
-/* Contact List */
 .contact-list {
   list-style: none;
   margin-top: 1.5rem;
@@ -183,13 +517,13 @@ h2 {
 }
 
 .contact-list strong {
-  color: var(--text);
+  color: var(--text-modern);
   min-width: 75px;
   font-weight: 600;
 }
 
 .placeholder {
-  color: var(--text-secondary);
+  color: var(--text-secondary-modern);
   transition: var(--transition);
 }
 
@@ -197,30 +531,51 @@ h2 {
   color: var(--accent);
 }
 
-/* Footer */
 .site-footer {
   padding: 4rem 0;
   text-align: center;
-  color: var(--text-secondary);
+  color: var(--text-secondary-modern);
   font-size: 0.875rem;
   border-top: 1px solid var(--border);
 }
 
-/* Subtle Glow Effect on Hover */
 .hero a:hover {
   text-shadow: 0 0 20px var(--accent-glow);
 }
 
-/* Mobile */
-@media (max-width: 700px) {
+/* ========================================
+   RESPONSIVIDADE (Combinada)
+   ======================================== */
+@media (max-width: 768px) {
+  .main-layout {
+    display: block;
+  }
+  
+  .sidebar, .content {
+    display: block;
+    width: 100%;
+    border-right: none;
+  }
+  
+  .win95-taskbar {
+    flex-wrap: wrap;
+    height: auto;
+    padding: 2px;
+  }
+  
+  .nav-item {
+    font-size: 12px;
+    padding: 2px 8px;
+  }
+  
   .hero {
     padding: 3.5rem 0 2rem;
   }
-
+  
   h1 {
     font-size: 2.5rem;
   }
-
+  
   .section {
     padding: 3.5rem 0;
   }
