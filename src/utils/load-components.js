@@ -18,16 +18,16 @@ async function loadComponent(elementId, filePath) {
 // Executa quando a página carrega
 document.addEventListener('DOMContentLoaded', () => {
     
-    loadComponent('header-placeholder', './header.html');
+    loadComponent('header-placeholder', '/src/components/header.html');
   
     // Carrega o Footer
-    loadComponent('footer-placeholder', './footer.html');
+    loadComponent('footer-placeholder', '/src/components/footer.html');
 
     // Carrega o script.js (relógio e lógica) APÓS o header estar pronto
     // Usamos setTimeout pequeno para garantir que o DOM do header foi injetado
     setTimeout(() => {
         const script = document.createElement('script');
-        script.src = './script.js';
+        script.src = 'src/utils/script.js';
         document.body.appendChild(script);
     }, 100);
 });
