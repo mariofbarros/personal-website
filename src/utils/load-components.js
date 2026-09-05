@@ -3,31 +3,35 @@
 // ==========================================
 
 async function loadComponent(elementId, filePath) {
+  const target = document.getElementById(elementId);
+  if (!target) return;
+
   try {
     const response = await fetch(filePath);
     if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-    const html = await response.text();
-    document.getElementById(elementId).innerHTML = html;
+    target.innerHTML = await response.text();
   } catch (error) {
     console.error(`Erro ao carregar ${filePath}:`, error);
-    // Fallback: mostra um aviso se falhar
-    document.getElementById(elementId).innerHTML = '<p style="color:red; text-align:center;">Erro ao carregar menu.</p>';
+    target.innerHTML = '<p style="color:red; text-align:center;">Erro ao carregar menu.</p>';
   }
+
+  if (elementId === 'header-placeholder') {
+    markActiveNavItem();
+  }
+}
+
+// Marca o .nav-item cujo link aponta para a página atual
+function markActiveNavItem() {
+  document.querySelectorAll('.nav-item').forEach((link) => {
+    if (link.pathname === window.location.pathname) {
+      link.classList.add('active');
+    }
+  });
 }
 
 // Executa quando a página carrega
 document.addEventListener('DOMContentLoaded', () => {
-    
-    loadComponent('header-placeholder', '/src/components/header.html');
-  
-    // Carrega o Footer
-    loadComponent('footer-placeholder', '/src/components/footer.html');
-
-    // Carrega o script.js (relógio e lógica) APÓS o header estar pronto
-    // Usamos setTimeout pequeno para garantir que o DOM do header foi injetado
-    setTimeout(() => {
-        const script = document.createElement('script');
-        script.src = 'src/utils/script.js';
-        document.body.appendChild(script);
-    }, 100);
+  const headerSrc = window.HEADER_SRC || '/src/components/header.html';
+  loadComponent('header-placeholder', headerSrc);
+  loadComponent('footer-placeholder', '/src/components/footer.html');
 });
