@@ -1,0 +1,195 @@
+/* ==========================================================
+   MODERN THEME — minimal layout used by the About Me pages
+   Loaded in addition to retro.css (taskbar/footer stay retro)
+   ========================================================== */
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/public/fonts/Inter-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/public/fonts/Inter-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('/public/fonts/JetBrainsMono-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('/public/fonts/JetBrainsMono-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --text-modern: #313758;
+  --text-secondary-modern: #000004;
+  --accent: #b5aa32;
+  --accent-glow: rgba(99, 102, 241, 0.15);
+  --bg-secondary-modern: #141414;
+  --border: #27272a;
+  --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --radius: 8px;
+  --transition: all 0.2s ease;
+}
+
+.container {
+  width: min(900px, 92%);
+  margin: 0 auto;
+  font-family: var(--font-main);
+}
+
+.hero {
+  padding: 5rem 0 4rem;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 6vw, 4rem);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.75rem;
+}
+
+.hero a:hover {
+  text-shadow: 0 0 20px var(--accent-glow);
+}
+
+.lead p {
+  color: var(--text-secondary-modern);
+  max-width: 48rem;
+  margin-bottom: 1.25rem;
+  font-size: 1.05rem;
+}
+
+.container code {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+  background: var(--bg-secondary-modern);
+  color: var(--accent);
+  padding: 0.2em 0.4em;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+
+.meta {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+
+.meta p {
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--text-secondary-modern);
+}
+
+.meta ul {
+  list-style: none;
+  color: var(--text-secondary-modern);
+}
+
+.meta li {
+  margin-bottom: 0.6rem;
+  padding-left: 1.25rem;
+  position: relative;
+}
+
+.meta li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
+.profile-photo {
+  width: 250px;
+  height: fit-content;
+  object-fit: cover;
+  display: block;
+  margin: auto auto 15px auto;
+}
+
+.section {
+  padding: 2rem 0;
+}
+
+.section h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+  font-weight: 600;
+}
+
+.section p {
+  color: var(--text-secondary-modern);
+  max-width: 50rem;
+}
+
+.contact-list {
+  list-style: none;
+  margin-top: 1.5rem;
+}
+
+.contact-list li {
+  margin: 1rem 0;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.contact-list strong {
+  color: var(--text-modern);
+  min-width: 75px;
+  font-weight: 600;
+}
+
+.placeholder {
+  color: var(--text-secondary-modern);
+  transition: var(--transition);
+}
+
+.placeholder:hover {
+  color: var(--accent);
+}
+
+.site-footer {
+  padding: 4rem 0;
+  text-align: center;
+  color: var(--text-secondary-modern);
+  font-size: 0.875rem;
+  border-top: 1px solid var(--border);
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+  .hero {
+    padding: 3.5rem 0 2rem;
+  }
+
+  .hero h1 {
+    margin-top: 40px;
+    font-size: 2.5rem;
+  }
+
+  .section {
+    padding: 3.5rem 0;
+  }
+}
