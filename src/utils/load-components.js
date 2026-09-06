@@ -31,7 +31,7 @@ function markActiveNavItem() {
 
 // Executa quando a página carrega
 document.addEventListener('DOMContentLoaded', () => {
-  const headerSrc = window.HEADER_SRC || '/src/components/header.html';
+  const headerSrc = window.HEADER_SRC || '/src/components/headers/default.html';
   loadComponent('header-placeholder', headerSrc);
   loadComponent('footer-placeholder', '/src/components/footer.html');
 });

@@ -24,11 +24,9 @@ html {
   --win-yellow: #ffcc00;
   --win-sidebar: #000066;
   --win-red: #ff0000;
-  --win-green: #00ff00;
   --win-footer: #000033;
   --win-cyan: #00ffff;
   --font-retro: 'MS Sans Serif', Arial, sans-serif;
-  --font-retro-mono: 'Courier New', monospace;
 }
 
 /* ---- Base ---- */
@@ -260,38 +258,6 @@ body {
   color: #800080;
 }
 
-/* ---- Visitor counter (not wired into a page yet) ---- */
-.counter-container {
-  background-color: var(--win-black);
-  padding: 10px;
-  border: 3px inset var(--win-dark);
-  display: inline-block;
-  margin: 10px 0;
-}
-
-.counter-label {
-  color: var(--win-green);
-  font-family: var(--font-retro-mono);
-  font-size: 12px;
-  margin-right: 10px;
-}
-
-.counter-display {
-  display: inline-flex;
-  gap: 2px;
-}
-
-.digit {
-  background-color: var(--win-black);
-  color: var(--win-red);
-  font-family: var(--font-retro-mono);
-  font-weight: bold;
-  font-size: 24px;
-  padding: 2px 6px;
-  border: 1px solid var(--win-red);
-  text-shadow: 0 0 5px var(--win-red);
-}
-
 /* ---- Download button (index.html) ---- */
 .win95-button {
   display: inline-block;
@@ -352,6 +318,101 @@ footer a {
 @keyframes blinkText {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.5; }
+}
+
+/* ---- Project list (projects.html / projects/*.html) ---- */
+.project-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.project-entry {
+  background-color: var(--win-gray);
+  border-top: 2px solid var(--win-light);
+  border-left: 2px solid var(--win-light);
+  border-right: 2px solid var(--win-black);
+  border-bottom: 2px solid var(--win-black);
+  padding: 10px 14px;
+}
+
+.project-entry a {
+  color: #000080;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.project-entry p {
+  margin-top: 4px;
+  color: var(--win-black);
+}
+
+/* ---- Blog list (blog.html / blog/*.html) ---- */
+.blog-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.blog-entry {
+  background-color: var(--win-gray);
+  border-top: 2px solid var(--win-light);
+  border-left: 2px solid var(--win-light);
+  border-right: 2px solid var(--win-black);
+  border-bottom: 2px solid var(--win-black);
+  padding: 10px 14px;
+}
+
+.blog-entry a {
+  color: #000080;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.blog-entry p {
+  margin-top: 4px;
+  color: var(--win-black);
+}
+
+/* ---- Gallery grid (gallery.html) ---- */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 12px;
+}
+
+.gallery-item {
+  background-color: var(--win-light);
+  border: 3px inset var(--win-dark);
+  padding: 4px;
+  text-align: center;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  display: block;
+}
+
+.gallery-item figcaption {
+  font-size: 12px;
+  padding-top: 4px;
+  color: var(--win-black);
+}
+
+/* ---- Guestbook embed frame (index.html) ---- */
+.guestbook-frame {
+  background-color: var(--win-light);
+  border: 3px inset var(--win-dark);
+  padding: 15px;
+  margin-top: 10px;
+}
+
+.guestbook-frame iframe {
+  display: block;
 }
 
 /* ---- Responsive ---- */

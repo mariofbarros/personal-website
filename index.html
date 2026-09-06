@@ -15,7 +15,7 @@
   <!-- Cabeçalho Principal -->
   <div class="header">
     <h1>WELCOME TO MY CORNER OF THE WEB</h1>
-    <p>Last updated: 05/Sep/2026</p>
+    <p>Last updated: <span id="last-updated">05/Sep/2026</span></p>
   </div>
 
   <!-- Banner Em Construção -->
@@ -35,9 +35,10 @@
         <h3>Quick Menu</h3>
         <ul>
           <li><a href="index.html">Home</a></li>
-          <li><a href="/src/pages/about_me-en.html">About Me</a></li>
-          <li><a href="#links">Interesting Links</a></li>
-          <li><a href="#galeria">GIF Gallery</a></li>
+          <li><a href="/src/pages/about-en.html">About Me</a></li>
+          <li><a href="/src/pages/projects.html">Projects</a></li>
+          <li><a href="/src/pages/gallery.html">GIF Gallery</a></li>
+          <li><a href="/src/pages/blog.html">Blog</a></li>
         </ul>
         <br>
       </td>
@@ -65,9 +66,22 @@
     </tr>
   </table>
 
+  <div class="main-layout">
+    <div class="content" id="guestbook">
+      <h2>Guestbook</h2>
+      <p>Leave a message below — glad you stopped by!</p>
+      <br>
+
+      <div class="guestbook-frame">
+        <iframe src="https://www5.cbox.ws/box/?boxid=966443&boxtag=rdLaq9" width="50%" height="450" allowtransparency="yes" allow="autoplay" frameborder="0" marginheight="0" marginwidth="0" scrolling="auto"></iframe>
+      </div>
+    </div>
+  </div>
+
   <div id="footer-placeholder"></div>
 
   <script src="/src/utils/load-components.js"></script>
   <script src="/src/utils/script.js"></script>
+  <script src="/src/utils/last-updated.js"></script>
 </body>
 </html>

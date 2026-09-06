@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects - Mario</title>
+  <link rel="stylesheet" href="/src/styles/retro.css">
+  <link rel="icon" href="https://i.imgur.com/KwX2CTv.gif">
+</head>
+<body>
+
+  <div id="header-placeholder"></div>
+
+  <div class="header">
+    <h1>PROJECTS</h1>
+    <p>A few things I've built</p>
+  </div>
+
+  <div class="main-layout">
+    <div class="content">
+      <p>Each project below has its own page with a GitHub link and a short write-up.</p>
+      <br>
+
+      <!--
+        To add a project:
+          1. Copy src/pages/projects/template.html to src/pages/projects/your-project.html and fill it in.
+          2. Add a <li> below, pointing to it, with the real GitHub URL in data-github.
+        Entries with a blank/missing data-github (or one that isn't a github.com link) are
+        automatically hidden by projects.js, so you can stage an entry before it's ready.
+      -->
+      <ul class="project-list">
+      </ul>
+      <p>Nothing listed yet — check back soon!</p>
+    </div>
+  </div>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="/src/utils/load-components.js"></script>
+  <script src="/src/utils/script.js"></script>
+  <script src="/src/utils/projects.js"></script>
+</body>
+</html>

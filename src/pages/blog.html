@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog - Mario</title>
+  <link rel="stylesheet" href="/src/styles/retro.css">
+  <link rel="icon" href="https://i.imgur.com/KwX2CTv.gif">
+</head>
+<body>
+
+  <div id="header-placeholder"></div>
+
+  <div class="header">
+    <h1>BLOG</h1>
+    <p>Thoughts, notes, and adventures</p>
+  </div>
+
+  <div class="main-layout">
+    <div class="content">
+      <!--
+        To add a post:
+          1. Copy src/pages/blog/template.html to src/pages/blog/your-post.html and fill it in.
+          2. Add a <li> below, pointing to it, with the real publish date in data-date (YYYY-MM-DD).
+        Entries with a blank/missing/invalid data-date are automatically hidden by blog.js,
+        so you can draft an entry before it's ready to publish.
+      -->
+      <ul class="blog-list">
+      </ul>
+      <p>No posts yet — check back soon!</p>
+    </div>
+  </div>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="/src/utils/load-components.js"></script>
+  <script src="/src/utils/script.js"></script>
+  <script src="/src/utils/blog.js"></script>
+</body>
+</html>
